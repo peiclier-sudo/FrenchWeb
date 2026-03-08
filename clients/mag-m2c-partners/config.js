@@ -174,20 +174,20 @@ window.SITE_CONFIG = {
      ---------------------------------------------------------- */
   design: {
     colors: {
-      primary:   "#0d1b2a",
-      accent:    "#c8553d",
-      bg:        "#faf9f7",
+      primary:   "#0a0a0a",
+      accent:    "#e85d04",
+      bg:        "#faf7f2",
       bgAlt:     "#f0ede8",
-      text:      "#1b1b1b",
-      textMuted: "#6e6e6e",
+      text:      "#171717",
+      textMuted: "#71717a",
       surface:   "#ffffff",
     },
     fonts: {
-      display: "DM Serif Display",
-      body:    "DM Sans",
+      display: "Syne",
+      body:    "Inter",
     },
     shape: {
-      radius:  "2px",
+      radius:  "0px",
       spacing: "airy",
     },
   },
