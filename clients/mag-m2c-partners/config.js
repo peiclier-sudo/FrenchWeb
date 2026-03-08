@@ -64,7 +64,7 @@ window.SITE_CONFIG = {
       title:    "Structurer la décision.\nAccélérer la transformation.",
       subtitle: "MAG-M2C PARTNERS accompagne les dirigeants d'entreprises publiques et privées dans leurs décisions stratégiques, leurs transitions managériales et leurs situations de crise.",
       cta: {
-        primary:   { label: "Échanger avec un consultant", href: "#contact" },
+        primary:   { label: "Nous contacter", href: "#contact" },
         secondary: { label: "Nos expertises", href: "#services" },
       },
       image: null,
@@ -73,7 +73,7 @@ window.SITE_CONFIG = {
     /* Services */
     services: {
       enabled:  true,
-      title:    "Nos Expertises",
+      title:    "Expertises",
       subtitle: "Des interventions ciblées, adaptées à la complexité de chaque situation.",
       items: [
         {
@@ -114,7 +114,7 @@ window.SITE_CONFIG = {
     /* About */
     about: {
       enabled: true,
-      title:   "Notre Approche",
+      title:   "Approche",
       text:    "MAG-M2C PARTNERS réunit des consultants seniors issus du monde de l'entreprise — anciens dirigeants, managers de transition et experts sectoriels. Notre force : une approche pragmatique, ancrée dans le réel, loin des modèles théoriques standardisés. Chaque mission commence par une écoute approfondie de votre contexte, de vos contraintes et de vos ambitions. Nous intervenons là où les décisions comptent, avec la rigueur et la discrétion que vos enjeux exigent.",
       image:   null,
       stats: [
@@ -160,7 +160,7 @@ window.SITE_CONFIG = {
     /* Contact */
     contact: {
       enabled:      true,
-      title:        "Parlons de Votre Projet",
+      title:        "Contact",
       subtitle:     "Décrivez-nous votre situation. Un consultant senior vous recontacte sous 24 heures.",
       formEndpoint: "",  // À remplir par l'opérateur — ex: https://formspree.io/f/xABCDEFG
       btnLabel:     "Envoyer ma demande",
