@@ -4,3 +4,6 @@
 [build]
   command = "bash build.sh"
   publish = "dist"
+
+[build.environment]
+  CLIENT = "mag-m2c-partners"
