@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Title and meta — overwritten by engine.js -->
+  <title>Chargement…</title>
+  <meta name="description" content="">
+
+  <!-- Stylesheets — load order matters -->
+  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="theme.css">
+
+  <!-- Config then engine — synchronous, no defer/async -->
+  <script src="config.js"></script>
+  <script src="engine.js"></script>
+</head>
+
+<body>
+
+  <!-- ========== NAVBAR ========== -->
+  <header id="navbar" role="banner" aria-label="Navigation principale">
+    <div class="container navbar-inner">
+
+      <!-- Logo / Brand -->
+      <a href="#" class="navbar-brand" aria-label="Accueil">
+        <span class="navbar-icon"></span>
+        <span class="navbar-name"></span>
+      </a>
+
+      <!-- Navigation links — populated by engine.js -->
+      <nav role="navigation" aria-label="Menu principal">
+        <ul class="nav-menu" id="nav-menu"></ul>
+      </nav>
+
+      <!-- Burger toggle (mobile) -->
+      <button class="nav-toggle" id="nav-toggle"
+              aria-label="Ouvrir le menu"
+              aria-expanded="false"
+              aria-controls="nav-menu">
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+      </button>
+
+      <!-- CTA button in navbar -->
+      <a href="#contact" class="navbar-cta" id="navbar-cta"></a>
+    </div>
+  </header>
+
+
+  <!-- ========== HERO ========== -->
+  <section id="hero" aria-label="Présentation">
+    <div class="container hero-inner">
+      <div class="hero-content">
+        <span class="tag hero-tag"></span>
+        <h1 class="hero-title"></h1>
+        <p class="hero-subtitle"></p>
+        <div class="hero-cta"></div>
+      </div>
+      <div class="hero-visual"></div>
+    </div>
+  </section>
+
+
+  <!-- ========== SERVICES ========== -->
+  <section id="services" class="section reveal" aria-label="Nos services" hidden>
+    <div class="container">
+      <div class="section-header">
+        <h2 class="services-title"></h2>
+        <p class="services-subtitle"></p>
+      </div>
+      <div class="services-grid"></div>
+    </div>
+  </section>
+
+
+  <!-- ========== GALLERY ========== -->
+  <section id="gallery" class="section section--alt reveal" aria-label="Galerie" hidden>
+    <div class="container">
+      <div class="section-header">
+        <h2 class="gallery-title"></h2>
+      </div>
+      <div class="gallery-grid"></div>
+    </div>
+  </section>
+
+
+  <!-- ========== ABOUT ========== -->
+  <section id="about" class="section reveal" aria-label="À propos" hidden>
+    <div class="container">
+      <div class="about-inner">
+        <div class="about-content">
+          <h2 class="about-title"></h2>
+          <p class="about-text"></p>
+          <div class="about-stats"></div>
+        </div>
+        <div class="about-visual"></div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========== TESTIMONIALS ========== -->
+  <section id="testimonials" class="section section--alt reveal" aria-label="Témoignages" hidden>
+    <div class="container">
+      <div class="section-header">
+        <h2 class="testimonials-title">Ce que disent nos clients</h2>
+      </div>
+      <div class="testimonials-grid"></div>
+    </div>
+  </section>
+
+
+  <!-- ========== HOURS ========== -->
+  <section id="hours" class="section reveal" aria-label="Horaires" hidden>
+    <div class="container">
+      <div class="section-header">
+        <h2 class="hours-title">Horaires d'ouverture</h2>
+      </div>
+      <div class="hours-list"></div>
+    </div>
+  </section>
+
+
+  <!-- ========== CONTACT ========== -->
+  <section id="contact" class="section section--alt reveal" aria-label="Contact" hidden>
+    <div class="container">
+      <div class="contact-inner">
+
+        <!-- Contact form -->
+        <div class="contact-form-wrap">
+          <h2 class="contact-title"></h2>
+          <p class="contact-subtitle"></p>
+          <form id="contact-form" class="contact-form" novalidate>
+            <!-- Honeypot -->
+            <div class="form-hp" aria-hidden="true">
+              <label for="hp-field">Ne pas remplir</label>
+              <input type="text" id="hp-field" name="_gotcha" tabindex="-1" autocomplete="off">
+            </div>
+
+            <div class="form-group">
+              <label for="form-name">Nom *</label>
+              <input type="text" id="form-name" name="name" required aria-required="true"
+                     placeholder="Votre nom">
+            </div>
+
+            <div class="form-group">
+              <label for="form-email">Email *</label>
+              <input type="email" id="form-email" name="email" required aria-required="true"
+                     placeholder="votre@email.com">
+            </div>
+
+            <div class="form-group form-group--phone" hidden>
+              <label for="form-phone">Téléphone</label>
+              <input type="tel" id="form-phone" name="phone"
+                     placeholder="06 12 34 56 78">
+            </div>
+
+            <div class="form-group">
+              <label for="form-message">Message *</label>
+              <textarea id="form-message" name="message" rows="5" required aria-required="true"
+                        placeholder="Votre message…"></textarea>
+            </div>
+
+            <div class="form-group">
+              <label class="rgpd-check">
+                <input type="checkbox" name="rgpd" required aria-required="true">
+                <span>J'accepte que mes données soient traitées pour répondre à ma demande, conformément à la
+                  <a href="mentions-legales.html" target="_blank">politique de confidentialité</a>.</span>
+              </label>
+            </div>
+
+            <button type="submit" class="btn btn-primary contact-submit"></button>
+
+            <!-- Feedback messages -->
+            <div class="form-feedback form-feedback--success" hidden>
+              <p>Merci ! Votre message a bien été envoyé. Nous vous répondrons rapidement.</p>
+            </div>
+            <div class="form-feedback form-feedback--error" hidden>
+              <p>Une erreur est survenue. Veuillez réessayer ou nous contacter directement.</p>
+            </div>
+          </form>
+        </div>
+
+        <!-- Contact info -->
+        <div class="contact-info">
+          <div class="contact-details"></div>
+          <div class="contact-socials"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========== MAP ========== -->
+  <section id="map" class="reveal" aria-label="Localisation" hidden>
+    <iframe class="map-embed" width="100%" height="400"
+            loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            title="Localisation sur Google Maps"
+            src="about:blank"></iframe>
+  </section>
+
+
+  <!-- ========== FOOTER ========== -->
+  <footer id="footer" role="contentinfo" aria-label="Pied de page">
+    <div class="container footer-inner">
+      <div class="footer-brand"></div>
+      <nav class="footer-nav" aria-label="Liens du pied de page">
+        <ul class="footer-links"></ul>
+      </nav>
+      <div class="footer-legal">
+        <a href="mentions-legales.html">Mentions légales</a>
+        <span class="footer-copyright"></span>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ========== INIT ========== -->
+  <script>
+    if (window.SITE_CONFIG) {
+      initSite(window.SITE_CONFIG);
+    }
+  </script>
+
+</body>
+</html>

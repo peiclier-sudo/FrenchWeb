@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mentions légales</title>
+  <meta name="robots" content="noindex, nofollow">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="theme.css">
+
+  <!-- Config + engine (for tokens and fonts only) -->
+  <script src="config.js"></script>
+  <script src="engine.js"></script>
+</head>
+
+<body>
+
+  <!-- Apply design tokens and fonts — NOT initSite() -->
+  <script>
+    if (window.SITE_CONFIG) {
+      applyDesignTokens(window.SITE_CONFIG.design);
+      loadFonts(window.SITE_CONFIG.design.fonts);
+    }
+  </script>
+
+  <main class="container legal-page" role="main">
+
+    <!-- Back link -->
+    <nav class="legal-nav" aria-label="Retour">
+      <a href="index.html" class="legal-back">← Retour au site</a>
+    </nav>
+
+    <h1 class="legal-title">Mentions Légales</h1>
+
+    <!-- Editeur du site -->
+    <section class="legal-section" aria-label="Éditeur du site">
+      <h2>Éditeur du site</h2>
+      <p>
+        <strong id="legal-name"></strong><br>
+        <span id="legal-address"></span><br>
+        <span id="legal-phone"></span><br>
+        <span id="legal-email"></span>
+      </p>
+      <p>
+        <!-- TODO: À remplir par l'opérateur -->
+        Forme juridique : <span class="legal-todo">[À compléter]</span><br>
+        SIRET : <span class="legal-todo">[À compléter]</span><br>
+        N° TVA intracommunautaire : <span class="legal-todo">[À compléter]</span>
+      </p>
+    </section>
+
+    <!-- Directeur de la publication -->
+    <section class="legal-section" aria-label="Directeur de la publication">
+      <h2>Directeur de la publication</h2>
+      <p>
+        <!-- TODO: À remplir par l'opérateur -->
+        <span class="legal-todo">[Nom du directeur de la publication — À compléter]</span>
+      </p>
+    </section>
+
+    <!-- Hébergement -->
+    <section class="legal-section" aria-label="Hébergement">
+      <h2>Hébergement</h2>
+      <p>
+        Netlify, Inc.<br>
+        512 2nd Street, Suite 200<br>
+        San Francisco, CA 94107<br>
+        États-Unis<br>
+        Site web : www.netlify.com
+      </p>
+    </section>
+
+    <!-- Propriété intellectuelle -->
+    <section class="legal-section" aria-label="Propriété intellectuelle">
+      <h2>Propriété intellectuelle</h2>
+      <p>
+        L'ensemble du contenu de ce site (textes, images, vidéos, logos, icônes, sons, logiciels, etc.)
+        est la propriété exclusive de l'éditeur ou de ses partenaires et est protégé par les lois
+        françaises et internationales relatives à la propriété intellectuelle.
+      </p>
+      <p>
+        Toute reproduction, représentation, modification, publication, adaptation de tout ou partie
+        des éléments du site, quel que soit le moyen ou le procédé utilisé, est interdite, sauf
+        autorisation écrite préalable de l'éditeur.
+      </p>
+    </section>
+
+    <!-- Données personnelles -->
+    <section class="legal-section" aria-label="Données personnelles">
+      <h2>Données personnelles &amp; RGPD</h2>
+      <p>
+        Les informations recueillies via le formulaire de contact sont destinées exclusivement
+        à l'éditeur du site, dans le but de répondre à vos demandes. Elles ne sont en aucun cas
+        cédées à des tiers.
+      </p>
+      <p>
+        Conformément au Règlement Général sur la Protection des Données (RGPD) et à la loi
+        « Informatique et Libertés », vous disposez d'un droit d'accès, de rectification,
+        de suppression et d'opposition aux données vous concernant.
+      </p>
+      <p>
+        Pour exercer ces droits, vous pouvez nous contacter à l'adresse email indiquée ci-dessus
+        ou par courrier postal à l'adresse de l'éditeur.
+      </p>
+    </section>
+
+    <!-- Cookies -->
+    <section class="legal-section" aria-label="Cookies">
+      <h2>Cookies</h2>
+      <p>
+        Ce site peut utiliser des cookies à des fins de mesure d'audience (Google Analytics).
+        Ces cookies permettent de collecter des informations anonymes sur la manière dont les
+        visiteurs utilisent le site, afin d'en améliorer le contenu et l'ergonomie.
+      </p>
+      <p>
+        Vous pouvez à tout moment désactiver les cookies dans les paramètres de votre navigateur.
+        La désactivation des cookies n'empêche pas la navigation sur le site.
+      </p>
+    </section>
+
+    <!-- Crédits -->
+    <section class="legal-section" aria-label="Crédits">
+      <h2>Crédits</h2>
+      <p>
+        Site conçu et développé avec Site Factory.<br>
+        Hébergement : Netlify.
+      </p>
+    </section>
+
+  </main>
+
+  <!-- Auto-fill from config -->
+  <script>
+    (function() {
+      var C = window.SITE_CONFIG;
+      if (!C) return;
+
+      var id = C.identity;
+      var ct = C.contact;
+
+      /* Business name */
+      var nameEl = document.getElementById("legal-name");
+      if (nameEl) nameEl.textContent = id.name;
+
+      /* Address */
+      var addrEl = document.getElementById("legal-address");
+      if (addrEl && ct.address) {
+        addrEl.textContent = ct.address.street + ", " + ct.address.zip + " " + ct.address.city;
+      }
+
+      /* Phone */
+      var phoneEl = document.getElementById("legal-phone");
+      if (phoneEl && ct.phone) {
+        phoneEl.textContent = "Tél : " + ct.phone;
+      }
+
+      /* Email */
+      var emailEl = document.getElementById("legal-email");
+      if (emailEl && ct.email) {
+        emailEl.textContent = "Email : " + ct.email;
+      }
+
+      /* Page title */
+      document.title = "Mentions légales — " + id.name;
+    })();
+  </script>
+
+  <style>
+    /* Minimal legal page styling — uses design tokens */
+    .legal-page {
+      padding-block: var(--space-2xl);
+      max-width: 800px;
+    }
+
+    .legal-nav {
+      margin-bottom: var(--space-xl);
+    }
+
+    .legal-back {
+      font-size: 0.875rem;
+      color: var(--color-accent);
+      transition: opacity var(--transition-fast);
+    }
+
+    .legal-back:hover {
+      opacity: 0.7;
+    }
+
+    .legal-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--color-text);
+      margin-bottom: var(--space-2xl);
+    }
+
+    .legal-section {
+      margin-bottom: var(--space-xl);
+    }
+
+    .legal-section h2 {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      color: var(--color-text);
+      margin-bottom: var(--space-md);
+      padding-bottom: var(--space-sm);
+      border-bottom: 1px solid var(--color-accent);
+    }
+
+    .legal-section p {
+      font-size: 0.9375rem;
+      line-height: 1.7;
+      color: var(--color-text-muted);
+    }
+
+    .legal-todo {
+      color: var(--color-accent);
+      font-weight: 600;
+    }
+  </style>
+
+</body>
+</html>

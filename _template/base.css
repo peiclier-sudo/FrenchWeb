@@ -1,0 +1,259 @@
+/* ============================================================
+   BASE.CSS — Site Factory shared foundation
+   Reset + Design tokens + Layout utilities + Form behaviors
+   Never modified per client. Visual personality lives in theme.css.
+   ============================================================ */
+
+
+/* ------------------------------------------------------------
+   1. DESIGN TOKENS — CSS Custom Properties
+   Default fallbacks so the page is usable without a theme.
+   engine.js overrides these from config.js at runtime.
+   ------------------------------------------------------------ */
+
+:root {
+  /* Colors */
+  --color-primary:    #1a1a2e;
+  --color-accent:     #e94560;
+  --color-bg:         #ffffff;
+  --color-bg-alt:     #f5f5f5;
+  --color-text:       #2d2d2d;
+  --color-text-muted: #6b7280;
+  --color-surface:    #ffffff;
+
+  /* Typography */
+  --font-display: "Georgia", serif;
+  --font-body:    "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  /* Shape */
+  --radius: 6px;
+
+  /* Spacing scale */
+  --space-xs:  0.25rem;
+  --space-sm:  0.5rem;
+  --space-md:  1rem;
+  --space-lg:  2rem;
+  --space-xl:  4rem;
+  --space-2xl: 6rem;
+
+  /* Layout */
+  --container-max: 1200px;
+  --nav-height:    72px;
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-base: 300ms ease;
+}
+
+
+/* ------------------------------------------------------------
+   2. MINIMAL RESET
+   ------------------------------------------------------------ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--nav-height);
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-family: var(--font-display);
+  line-height: 1.2;
+}
+
+p {
+  margin: 0 0 var(--space-md);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+ul, ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  padding: 0;
+}
+
+iframe {
+  border: none;
+}
+
+
+/* ------------------------------------------------------------
+   3. LAYOUT UTILITIES
+   ------------------------------------------------------------ */
+
+/* Container — centered content with max-width */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--space-lg);
+}
+
+/* Section — vertical rhythm */
+.section {
+  padding-block: var(--space-xl);
+}
+
+/* Alternate section background */
+.section--alt {
+  background-color: var(--color-bg-alt);
+}
+
+/* Section header — centered title + subtitle block */
+.section-header {
+  text-align: center;
+  margin-bottom: var(--space-xl);
+}
+
+/* Tag — small uppercase label */
+.tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+
+/* ------------------------------------------------------------
+   4. REVEAL ANIMATION
+   ------------------------------------------------------------ */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* ------------------------------------------------------------
+   5. SCREEN-READER ONLY UTILITY
+   ------------------------------------------------------------ */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+
+/* ------------------------------------------------------------
+   6. FORM BEHAVIORS
+   ------------------------------------------------------------ */
+
+input,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+textarea {
+  resize: vertical;
+}
+
+/* RGPD checkbox layout */
+.rgpd-check {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  font-size: 0.8125rem;
+  line-height: 1.4;
+  color: var(--color-text-muted);
+}
+
+.rgpd-check input[type="checkbox"] {
+  flex-shrink: 0;
+  margin-top: 0.2em;
+  accent-color: var(--color-accent);
+}
+
+/* Honeypot — hidden from users, catches bots */
+.form-hp {
+  position: absolute;
+  left: -9999px;
+  opacity: 0;
+  height: 0;
+  width: 0;
+  overflow: hidden;
+}
+
+
+/* ------------------------------------------------------------
+   7. MOBILE BURGER BEHAVIOR
+   Show/hide toggle only — visual styling in theme.css
+   ------------------------------------------------------------ */
+
+.nav-toggle {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .nav-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nav-menu {
+    display: none;
+  }
+
+  .nav-menu.is-open {
+    display: flex;
+    flex-direction: column;
+  }
+}
