@@ -1,0 +1,6 @@
+# Site Factory — Netlify configuration
+# Assembles template + client files into a deployable site
+
+[build]
+  command = "bash build.sh"
+  publish = "dist"
