@@ -1,7 +1,6 @@
 /* ============================================================
    CONFIG.JS — NeoLearning
    Cours de français (FLE, FLI, FOS) & Boutique en ligne
-   Direction: Bold Pop Art — couleurs vives, énergie dynamique
    ============================================================ */
 
 window.SITE_CONFIG = {
@@ -15,7 +14,7 @@ window.SITE_CONFIG = {
     category: "Formation & E-commerce",
     locale:   "fr_FR",
     year:     2020,
-    icon:     "⚡",
+    icon:     "🎓",
     logo:     null,
   },
 
@@ -192,21 +191,21 @@ window.SITE_CONFIG = {
      ---------------------------------------------------------- */
   design: {
     colors: {
-      primary:   "#1a0a2e",
-      accent:    "#ff3c78",
+      primary:   "#111827",
+      accent:    "#2563eb",
       bg:        "#ffffff",
-      bgAlt:     "#f0e7ff",
-      text:      "#1a0a2e",
-      textMuted: "#7c6f96",
+      bgAlt:     "#f9fafb",
+      text:      "#111827",
+      textMuted: "#6b7280",
       surface:   "#ffffff",
     },
     fonts: {
-      display: "Archivo Black",
-      body:    "Nunito",
+      display: "Plus Jakarta Sans",
+      body:    "Plus Jakarta Sans",
     },
     shape: {
-      radius:  "16px",
-      spacing: "airy",
+      radius:  "10px",
+      spacing: "normal",
     },
   },
 
